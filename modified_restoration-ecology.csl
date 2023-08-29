@@ -1,0 +1,196 @@
+<ns0:style xmlns:ns0="http://purl.org/net/xbiblio/csl" demote-non-dropping-particle="sort-only" version="1.0" class="in-text" default-locale="en-GB">
+  <ns0:info>
+    <ns0:title>Restoration Ecology</ns0:title>
+    <ns0:id>http://www.zotero.org/styles/restoration-ecology</ns0:id>
+    <ns0:link href="http://www.zotero.org/styles/restoration-ecology" rel="self" />
+    <ns0:link href="http://www.zotero.org/styles/genome-biology-and-evolution" rel="template" />
+    <ns0:link href="https://onlinelibrary.wiley.com/page/journal/1526100x/homepage/forauthors.html" rel="documentation" />
+    <ns0:author>
+      <ns0:name>Caitlin Rottler</ns0:name>
+      <ns0:email>caitlin.m.rottler@gmail.com</ns0:email>
+    </ns0:author>
+    <ns0:category citation-format="author-date" />
+    <ns0:category field="biology" />
+    <ns0:eissn>1526-100X</ns0:eissn>
+    <ns0:updated>2021-06-02T07:49:02+00:00</ns0:updated>
+    <ns0:rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</ns0:rights>
+  </ns0:info>
+  <ns0:macro name="editor">
+    <ns0:names variable="editor">
+      <ns0:name initialize-with="" sort-separator=", " name-as-sort-order="all" delimiter=", " and="symbol">
+        <ns0:name-part name="family" text-case="capitalize-first" />
+        <ns0:name-part name="given" text-case="capitalize-first" />
+      </ns0:name>
+      <ns0:label prefix=", " form="long" />
+    </ns0:names>
+  </ns0:macro>
+  <ns0:macro name="series-editor">
+    <ns0:names variable="original-author">
+      <ns0:label text-case="capitalize-first" form="short" suffix=" " />
+      <ns0:name delimiter=", " and="symbol" />
+    </ns0:names>
+  </ns0:macro>
+  <ns0:macro name="author">
+    <ns0:names variable="author">
+      <ns0:name initialize-with="" sort-separator=" " name-as-sort-order="all" delimiter-precedes-last="always" />
+      <ns0:label prefix=", " form="short" />
+      <ns0:substitute>
+        <ns0:names variable="editor" />
+        <ns0:names variable="translator" />
+      </ns0:substitute>
+    </ns0:names>
+  </ns0:macro>
+  <ns0:macro name="author-short">
+    <ns0:names variable="author">
+      <ns0:name delimiter=", " and="symbol" form="short" delimiter-precedes-last="never" />
+      <ns0:substitute>
+        <ns0:names variable="editor" />
+        <ns0:names variable="translator" />
+      </ns0:substitute>
+    </ns0:names>
+  </ns0:macro>
+  <ns0:macro name="title">
+    <ns0:choose>
+      <ns0:if match="any" type="bill book graphic legal_case legislation motion_picture report song">
+        <ns0:text variable="title" font-style="normal" />
+      </ns0:if>
+      <ns0:else>
+        <ns0:text variable="title" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="publisher">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="publisher" />
+      <ns0:text variable="publisher-place" />
+    </ns0:group>
+  </ns0:macro>
+  <ns0:macro name="year-date">
+    <ns0:date variable="issued">
+      <ns0:date-part name="year" />
+    </ns0:date>
+  </ns0:macro>
+  <ns0:macro name="day-month">
+    <ns0:date variable="issued">
+      <ns0:date-part name="month" />
+      <ns0:date-part name="day" prefix=" " />
+    </ns0:date>
+  </ns0:macro>
+  <ns0:macro name="page">
+    <ns0:label variable="page" form="short" suffix=" " />
+    <ns0:text variable="page" form="short" />
+  </ns0:macro>
+  <ns0:macro name="edition">
+    <ns0:choose>
+      <ns0:if is-numeric="edition">
+        <ns0:group delimiter=" ">
+          <ns0:number variable="edition" form="ordinal" />
+          <ns0:text form="short" term="edition" />
+        </ns0:group>
+      </ns0:if>
+      <ns0:else>
+        <ns0:text variable="edition" suffix="." />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
+    <ns0:layout delimiter="; " prefix="(" suffix=")">
+      <ns0:group delimiter=", ">
+        <ns0:group delimiter=" ">
+          <ns0:text macro="author-short" />
+          <ns0:text macro="year-date" />
+        </ns0:group>
+        <ns0:text variable="locator" />
+      </ns0:group>
+    </ns0:layout>
+  </ns0:citation>
+  <ns0:bibliography line-spacing="2" hanging-indent="true">
+    <ns0:sort>
+      <ns0:key macro="author" />
+      <ns0:key variable="title" />
+    </ns0:sort>
+    <ns0:layout>
+      <ns0:group delimiter=" ">
+        <ns0:text macro="author" />
+        <ns0:text prefix="(" suffix=")" macro="year-date" />
+      </ns0:group>
+      <ns0:choose>
+        <ns0:if match="any" type="article-newspaper article-magazine">
+          <ns0:group delimiter=" ">
+            <ns0:text prefix=" " suffix="." macro="title" />
+          </ns0:group>
+          <ns0:group delimiter=", " prefix=" ">
+            <ns0:text variable="container-title" />
+            <ns0:text macro="day-month" />
+            <ns0:text variable="edition" />
+          </ns0:group>
+        </ns0:if>
+        <ns0:else-if type="thesis">
+          <ns0:text prefix=" " suffix="." macro="title" />
+          <ns0:group delimiter=", " prefix=" ">
+            <ns0:text macro="edition" />
+            <ns0:text suffix="." macro="editor" />
+            <ns0:text variable="genre" />
+            <ns0:text macro="publisher" />
+          </ns0:group>
+        </ns0:else-if>
+        <ns0:else-if match="any" type="bill book graphic legal_case legislation motion_picture report song">
+          <ns0:group delimiter=" ">
+            <ns0:text prefix=" " suffix="." macro="title" />
+            <ns0:text macro="edition" />
+            <ns0:text macro="publisher" />
+          </ns0:group>
+        </ns0:else-if>
+        <ns0:else-if match="any" type="chapter paper-conference">
+          <ns0:group delimiter=" ">
+            <ns0:text prefix=" " suffix="." macro="title" />
+            <ns0:group prefix="In: " suffix=".">
+              <ns0:text variable="container-title" suffix="." />
+              <ns0:group delimiter=" ">
+                <ns0:text prefix=" " suffix="." macro="editor" />
+                <ns0:text variable="collection-title" />
+                <ns0:text variable="volume" prefix="Vol. " />
+                <ns0:text macro="series-editor" />
+              </ns0:group>
+              <ns0:text prefix=" " macro="publisher" />
+              <ns0:text prefix=" " macro="page" />
+            </ns0:group>
+          </ns0:group>
+        </ns0:else-if>
+        <ns0:else>
+          <ns0:group suffix=".">
+            <ns0:text prefix=" " macro="title" />
+            <ns0:text prefix=" " macro="editor" />
+          </ns0:group>
+          <ns0:group delimiter=" " prefix=" ">
+            <ns0:text variable="container-title" />
+            <ns0:group delimiter=":">
+              <ns0:text variable="volume" />
+              <ns0:text variable="page" form="short" />
+              <ns0:choose>
+                <ns0:if match="none" variable="page volume">
+                  <ns0:text prefix="(" suffix=")" value="In Press" />
+                </ns0:if>
+              </ns0:choose>
+            </ns0:group>
+          </ns0:group>
+        </ns0:else>
+      </ns0:choose>
+    </ns0:layout>
+  </ns0:bibliography>
+<macro name="title">
+    <choose>
+      <if type="book report" match="any">
+        <text variable="title" font-style="italic" />
+      </if>
+      <else>
+        <text variable="title" />
+      </else>
+    </choose>
+</macro><macro name="access">
+    <choose>
+      <if type="webpage">
+        <text variable="URL" />
+      </if>
+    </choose>
+</macro></ns0:style>
